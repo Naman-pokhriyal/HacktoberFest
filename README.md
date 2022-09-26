@@ -1,5 +1,7 @@
 # HacktoberFest 🎉
-Create games in python / JavaScript / others for this hacktober2021
+Create games in python / JavaScript / others for this hacktober2022
+
+This is so you can learn and get started with Open-source. Easy, Simple and Intuitive Repo for all Coders out there 🤩!!
 
 Create games in any language you prefer.
 
