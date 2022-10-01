@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <div class="mainDiv">
+
+    <div class="headerText">
+    <h1>Number guessing game</h1>
+    <p>We have selected a random number between 1 and 100. See if you can guess it in 10 turns or less. We'll tell you if your guess was too high or too low.</p>
+    </div>
+    
+
+    <div class="form content">
+      <header for="guessField">Guess a number:</header>
+      <div class="section one">
+        <input type="text" id="guessField" class="guessField">
+    </div>
+    <div class="section space">
+        <input type="submit" value="Submit guess" class="guessSubmit">
+    </div>
+    </div>
+    
+
+    <div class="resultParas result">
+      <h3>GUESS</h3>
+      <p class="guesses"></p>
+      <p class="lastResult"></p>
+      <p class="lowOrHi"></p>
+    </div>
+
+    </div>
+
+</body>
+</html>
