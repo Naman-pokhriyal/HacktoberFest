@@ -1,0 +1,55 @@
+.cell {
+  width: 110px;
+  height: 110px;
+  border: 2px solid;
+  box-shadow: 0 0 0 2px;
+  line-height: 90px;
+  font-size: 79px;
+  cursor: pointer;
+  text-align: center;
+  font-weight: 200;
+}
+
+#gameContainer {
+  font-family: "Ink Free", cursive;
+  text-align: center;
+  font-size: 100px;
+}
+h1 {
+  font-size: 70px;
+}
+
+#statusText {
+  font-size: 70px;
+  margin-bottom: 0px;
+  margin-top: 18px;
+}
+
+#cellContainer {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  width: 330px;
+  margin: auto;
+}
+
+#restartBtn {
+  background-color: #0a0a23;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 15px;
+  min-height: 30px;
+  min-width: 120px;
+  font-family: "Permanent Marker", cursive;
+}
+
+#restartBtn:hover {
+  background-color: #373749b3;
+  transition: 0.7s;
+}
+
+#restartBtn:active {
+  color: #0a0a23;
+  background-color: #fff;
+  border: 1px solid;
+}
