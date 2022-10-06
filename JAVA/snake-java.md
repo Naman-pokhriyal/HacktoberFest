@@ -151,3 +151,4 @@ public class SnakeGame extends JFrame implements ActionListener, KeyListener{
  
 }
 ```
+![snake](https://github.com/arkapg211002/hfj2022/blob/Issue-snake-java/JAVA/2022-10-06.png)
