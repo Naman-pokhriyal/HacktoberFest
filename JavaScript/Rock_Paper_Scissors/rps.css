@@ -1,0 +1,192 @@
+@font-face {
+    font-family:'DanceToday-JRdzM';
+    src: url("DanceToday-JRdzM.otf") format("opentype");
+}
+@font-face {
+    font-family:'StreetExplorer-X3Y9Z';
+    src: url("StreetExplorer-X3Y9Z.otf") format("opentype");
+}
+
+html
+{
+    font-size: 62.5%;
+}
+* {
+    margin: 0rem;
+    padding: 0rem;
+}
+
+body
+{
+    background-image: url('https://images.saymedia-content.com/.image/t_share/MTc4NzM1OTc4MzE0MzQzOTM1/how-to-create-cool-website-backgrounds-the-ultimate-guide.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: none;
+    image-rendering: auto;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+}
+
+h1
+{
+    font-size: 5.0rem;
+    color: white;
+    margin-top: 2.0rem;
+    text-align: center;
+    animation: left-to-right 0.5s ease-in-out forwards;
+    font-family:'DanceToday-JRdzM';
+    font-weight: 300;
+}
+@keyframes left-to-right
+{
+    0%{transform: translateX(-30.0rem);}
+    0%{opacity: 0;}
+}
+
+h2
+{
+    font-family:'DanceToday-JRdzM';
+    color:rgb(249,202,202);
+    margin-top: 10.0rem;
+    text-align: center;
+    animation:top-bottom 0.7s;
+    font-weight: 300;
+    font-size: 4.0rem;
+}
+@keyframes top-bottom
+{
+    0%{opacity:0}
+    0%{transform: translateY(-50rem);}
+}
+
+.choices
+{
+    display:flex;
+    flex-direction: row;
+    /* padding:5rem; */
+    justify-content: center;
+}
+
+.button
+{
+    padding: 1.0rem;
+    font-size: 5.0rem;
+    margin-top: 4.0rem;
+    margin-right: 1.5rem;
+    border-radius: 2.0rem;
+    text-decoration: none;
+    animation: border 1s forwards;
+    color: white;
+    font-family:'StreetExplorer-X3Y9Z';
+}
+@keyframes border 
+{
+    0%{transform: translateX(-30.0rem);}
+    0%{background-color: white;}
+    100%{background-color: black;}
+}
+
+.button:hover
+{
+    transform: scale(1.1);
+    border: .2rem solid white;
+}
+
+.button:active{
+    transform: scale(0.7);
+}
+
+.leftanimation,.rightanimation
+{
+    border-radius: 50%;
+    box-shadow: rgba(80,16,146, 0.35) 0rem .5rem 1.5rem;
+    height: 22.0rem;
+    width: 22.0rem;
+    margin-top:9.0rem;
+    transform: scale(1.1);
+}
+
+.leftanimation
+{
+    animation:left-to 0.5s forwards;
+}
+@keyframes left-to
+{
+    25%{transform: translate(20.0rem);}
+    50%{transform: translate(19.0rem);}
+    75%{transform: translate(20.0rem);}
+    100%{transform: translate(19.0rem);}
+}
+
+.rightanimation
+{
+    animation:right-to 0.5s forwards;
+}
+
+@keyframes right-to
+{
+    25%{transform: translate(-20.0rem);}
+    50%{transform: translate(-19.0rem);}
+    75%{transform: translate(-20.0rem);}
+    100%{transform: translate(-19.0rem);}
+}
+
+#again
+{
+    background-color: red;
+    color:wheat;
+    margin-top: 2.0rem;
+    font-size: 2.5rem;
+    border-radius: 1.0rem;
+    text-decoration: none;
+    border: none;
+    padding: .5rem;
+    box-shadow: .4rem .4rem white;
+    font-family:'DanceToday-JRdzM';
+    font-weight: 30.0;
+    font-size: 4.0rem;
+}
+
+#again:hover
+{
+    transform: scale(1.2);
+}
+
+#again:active
+{
+    transform: scale(0.7);
+}
+
+@media (max-width:650px)
+{
+    html
+    {
+        font-size: 50%;
+    }
+}
+
+@media (max-width:480px)
+{
+    html
+    {
+        font-size: 45%;
+    }
+}
+
+@media (max-width:420px)
+{
+    html
+    {
+        font-size: 35%;
+    }
+}
+
+@media (max-width:840px)
+{
+    .choices
+    {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
