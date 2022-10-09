@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puzle</title>
+</head>
+
+<style>
+    body{
+        background-color: rgb(219, 219, 208);
+    }
+    .tablero{
+        border-radius:5px;
+        border:2px solid black;
+
+        position: relative;
+        width: 300px;
+        margin:0px auto;
+        display: grid;
+        grid-template-columns: 100px 100px 100px;
+        grid-template-rows:100px 100px 100px;
+        background-color: #aaa;
+    }
+
+    li{
+        padding: 8px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-weight: 300;
+        font-weight: 400;
+        font-size:3em;
+        display: flex;
+        border:2px solid black;
+        height:80px;
+        width:80px;
+        list-style: none;
+        text-decoration: none;
+        justify-content: center;
+        align-items: center;
+    }
+    li:hover{
+        background-color: rgb(158, 192, 202); 
+        
+        font-size: 4em;
+        cursor: pointer;
+    }
+    li:hover[data-valor="0"]{
+        background-color: #aaa;
+    }
+    #win{
+        font-size:4em;
+        color:green;
+        width:300px;
+        margin:0 auto;
+    }
+</style>
+
+<body>
+
+    <div class="tablero">
+        <li data-movements='RD' data-fila="0" data-columna="0" data-valor="2"></li>
+        <li data-movements='LRD' data-fila="0" data-columna="1" data-valor="1"></li>
+        <li data-movements='LD' data-fila="0" data-columna="2" data-valor="0"></li>
+
+        <li data-movements="RUD" data-fila="1" data-columna="0" data-valor="4"></li>
+        <li data-movements='LRUD' data-fila="1" data-columna="1" data-valor="5"></li>
+        <li data-movements='LDU' data-fila="1" data-columna="2" data-valor="3"></li>
+
+        <li data-movements='RU'data-fila="2" data-columna="0" data-valor="6"></li>
+        <li data-movements='LRU'data-fila="2" data-columna="1" data-valor="8"></li>
+        <li data-movements='LU' data-fila="2" data-columna="2" data-valor="7"></li>
+
+    </div>
+
+    <div id="win">
+
+    </div>
+</body>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+   /* your logic here */
+   lis = document.querySelectorAll("li"),
+    pintarValores()
+
+lis.forEach( li => {
+    li.addEventListener(
+        "click" , function(e){
+            const celda = e.target
+            const filaOrigen = parseInt(celda.getAttribute("data-fila"))
+            const columnaOrigen = parseInt(celda.getAttribute("data-columna"))
+            const valorOrigen = parseInt(celda.getAttribute("data-valor"))
+
+         
+            const movements=celda.getAttribute('data-movements')
+            const movimientos = Array.from(movements)
+
+            
+            movimientos.forEach(element => {
+                if (element === 'R'){
+                    const columnaDestino=columnaOrigen +1
+                    const filaDestino = filaOrigen
+                    const destino = document.querySelectorAll(`[data-columna=${CSS.escape(columnaDestino)}][data-fila=${CSS.escape(filaDestino)}]`);
+                    //el valor del destino lo pongo en el origen y al reves
+                
+                    if (destino[0].dataset.valor==="0"){ 
+                        celda.setAttribute("data-valor",destino[0].getAttribute("data-valor"))
+                        destino[0].setAttribute("data-valor",valorOrigen)
+                    }
+                    pintarValores()
+
+                }
+                else if (element==='L'){
+                    const columnaDestino=columnaOrigen - 1
+                    const filaDestino = filaOrigen
+                    const destino = document.querySelectorAll(`[data-columna=${CSS.escape(columnaDestino)}][data-fila=${CSS.escape(filaDestino)}]`);
+                    //el valor del destino lo pongo en el origen y al reves
+                
+                    if (destino[0].dataset.valor==="0"){ 
+                        celda.setAttribute("data-valor","0")
+                        destino[0].setAttribute("data-valor",valorOrigen)
+                    }
+                    pintarValores()
+
+                    
+                }
+
+                else if (element==='U'){
+                    const columnaDestino=columnaOrigen 
+                    const filaDestino = filaOrigen -1
+                    const destino = document.querySelectorAll(`[data-columna=${CSS.escape(columnaDestino)}][data-fila=${CSS.escape(filaDestino)}]`);
+                    //el valor del destino lo pongo en el origen y al reves
+                
+                    if (destino[0].dataset.valor==="0"){ 
+                        celda.setAttribute("data-valor","0")
+                        destino[0].setAttribute("data-valor",valorOrigen)
+                    }
+                    pintarValores()
+
+                    
+                }
+
+                else if (element==='D'){
+                    const columnaDestino=columnaOrigen 
+                    const filaDestino = filaOrigen + 1
+                    const destino = document.querySelectorAll(`[data-columna=${CSS.escape(columnaDestino)}][data-fila=${CSS.escape(filaDestino)}]`);
+                    //el valor del destino lo pongo en el origen y al reves
+                
+                    if (destino[0].dataset.valor==="0"){ 
+                        celda.setAttribute("data-valor","0")
+                        destino[0].setAttribute("data-valor",valorOrigen)
+                    }
+                    pintarValores()
+
+                    
+                }
+
+
+            });
+        });
+
+    //li.innerHTML=li.dataset.valor
+    // li.style.border="1px solid grey"
+  
+})
+
+function pintarValores(){
+    lis = document.querySelectorAll("li")
+
+    lis.forEach(li=>{
+        if (li.dataset.valor === "0") {
+            li.innerHTML=""
+        } else  li.innerHTML=li.dataset.valor
+    })
+
+    if (comprobar()){
+        console.log("muy bien, lo has logrado¡")
+        var tag = document.createElement("p");
+        var text = document.createTextNode("✌ WELL DONE!!");
+        tag.appendChild(text);
+        var element = document.getElementById("win");
+        element.appendChild(tag);
+    }
+}
+
+function comprobar(){
+    lis = document.querySelectorAll("li")
+
+    let completo = true
+    let valores =[]
+    lis.forEach(li => {
+        valores.push(li.dataset.valor)
+    });
+        valoresCorrectos=["1","2","3","4","5","6","7","8","0"]
+    if (JSON.stringify(valores) != JSON.stringify(valoresCorrectos)){
+        completo = false
+    }
+    return completo
+}
+
+});
+
+
+    
+
+</script>
+
+
+</html>
