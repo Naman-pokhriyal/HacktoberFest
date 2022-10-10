@@ -1,0 +1,40 @@
+<html ng-app="snlApp" class="ng-scope">
+<head>
+<title>Snakes and Ladders</title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+    <script src="angular.js">
+    </script>
+    <script src="angular-route.js">
+    </script>
+    <script src="controller.js">
+    </script>
+      <link href="css/game.css" rel="stylesheet">
+
+  </head>
+  <body class="center">
+<div class="welcome">
+<div class="header">Snakes and Ladders</div>
+<div class="subheader">Welcome to online multiplayer snakes and ladders!!</div>
+<div class="iblock" ng-hide="showBoard">
+<ul class="game-options" ng-controller="GameCtrl">
+<li ng-click = "setSettings(1)">Single Player against Computer</li>
+<li ng-click = "setSettings(2)">Two Player</li>
+</ul>
+</div>
+
+</div>
+   <div ng-controller="BoardCtrl" class="ng-scope snl-cont" ng-show="showBoard">
+      <ul class="snl-board">
+        <li class="snl-square ng-scope ng-binding" ng-class="{fright : square.isEven === true,snake: square.start > square.end, ladder:square.start < square.end, p0active:square.start === players[0].currentPos,p1active:square.start === players[1].currentPos}" ng-repeat="square in board">{{square.end + 1}}</li>
+   </ul>
+  </div>
+  <div class="bg-loader" ng-show="isLoading"></div>
+<div class="loader-cont" ng-show="isLoading"><div class="loader-content">{{isLoadingText}}</div></div>
+  <div ng-controller="BtnCtrl" class="ng-scope" ng-show="showBoard"> 
+	<button class="playGame" ng-click="startGame()" ng-hide="gameOver">
+      Player {{currentPlayer+1}}'s turn
+    </button>
+	<div ng-show="gameOver">Player {{winner}} won</div>
+  </div>
+</body></html>
