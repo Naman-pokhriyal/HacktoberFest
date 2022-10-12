@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Social Media Icons</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
+    <style>
+        .wrapper {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            width: 90%;
+            max-width: 1200px;
+            text-align: center;
+        }
+
+            .wrapper .btn {
+                display: inline-block;
+                width: 90px;
+                height: 90px;
+                background: #fff;
+                box-shadow: 0 5px 15px -5px #aaa;
+                margin: 10px;
+                border-radius: 30%;
+                overflow: hidden;
+                position: relative;
+                /*color: #42d2ff;*/
+                color: #FF7F50;
+            }
+
+                .wrapper .btn i {
+                    position: relative;
+                    z-index: 4;
+                    line-height: 90px;
+                    font-size: 26px;
+                    transition: 0.3s ease-in-out;
+                }
+
+                .wrapper .btn::before {
+                    content: "";
+                    position: absolute;
+                    width: 120%;
+                    height: 120%;
+                    background: linear-gradient(#00c6ff,#0072ff);#FF5733
+                    transform: rotate(45deg);
+                    left: -110%;
+                    top: 90%;
+                }
+
+                .wrapper .btn:hover i {
+                    color: #fff;
+                    transform: scale(1.3);
+                }
+
+                .wrapper .btn:hover::before {
+                    animation: hvr 0.7s 1;
+                    left: -10%;
+                    top: -10%;
+                }
+
+        @keyframes hvr {
+            0% {
+                left: -110%;
+                top: 90%;
+            }
+
+            50% {
+                left: 10%;
+                top: -30%;
+            }
+
+            100% {
+                left: -10%;
+                top: -10%;
+            }
+        }
+    </style>
+
+</head>
+<body>
+    <div class="wrapper">
+        <a href="#" class="btn">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="#" class="btn">
+            <i class="fab fa-twitter"></i>
+        </a>
+        <a href="#" class="btn">
+            <i class="fab fa-google"></i>
+        </a>
+        <a href="#" class="btn">
+            <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="#" class="btn">
+            <i class="fab fa-youtube"></i>
+        </a>
+    </div>
+</body>
+</html>
