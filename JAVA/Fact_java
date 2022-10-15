@@ -1,0 +1,28 @@
+import java.util.*;
+class Recursive
+{
+    int fact(int n)
+    {
+        if(n==0)
+        {
+            return 1;
+        }
+        if(n==1)
+        {
+            return 1;
+        }
+        else
+        {
+            return n*fact(n-1);
+        }
+    }
+    public static void main(String sd[])
+    {
+        Recursive ob = new Recursive();
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a number to know its Factorial");
+        int m = sc.nextInt();
+        int x = ob.fact(m);
+        System.out.println("Factorial of "+"'"+m+"'"+" is : "+x);
+    }
+}
